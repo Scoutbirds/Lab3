@@ -19,15 +19,14 @@ int main(int argc, char **argv)
 
     int number;
 
-    sscanf(argv[1], "%d", &number); // Using sscanf
+    sscanf(argv[1], "%d", &number); // Using sscanf to get the number
 
     if (number < 0){
         fprintf(stderr, "%d must be >= 0\n", atoi(argv[1]));
         return -1;
     }
 
-
-
+    //Creating threads
     pthread_attr_init(&attr);
 
     pthread_create(&tid, &attr, runner, argv[1]);
@@ -45,7 +44,7 @@ void *runner(void *param)
 {
     int i, upper = atoi(param);
 
-
+    //fibonacci calculations
     for (i = 1; i < upper; i++)
     {
         sum = current + previous;

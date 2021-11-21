@@ -26,7 +26,7 @@ void SimpleThread(int which) {
 
 }
 
-
+//Checks if argument is a positive number
 int isNumber(char number[])
 {
     int i = 0;
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
         {
             int number;
 
-            sscanf(argv[1], "%d", &number); // Using sscanf
+            sscanf(argv[1], "%d", &number); // Using sscanf to turn the char into an int
 
 
             //Generating multiple threads
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
                 tid[i] = i;
             }
 
-
+            //Creating multiple threads
             for(int i = 1; i < number + 1; i++)
             {
                 pthread_attr_t attr;
