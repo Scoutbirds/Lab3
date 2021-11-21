@@ -57,8 +57,6 @@ int main(int argc, char **argv)
 
             sscanf(argv[1], "%d", &number); // Using sscanf
 
-            printf("%d", number);
-
 
             //Generating multiple threads
             pthread_t tid[number];

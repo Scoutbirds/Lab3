@@ -17,7 +17,11 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    if (atoi(argv[1] < 0)){
+    int number;
+
+    sscanf(argv[1], "%d", &number); // Using sscanf
+
+    if (number < 0){
         fprintf(stderr, "%d must be >= 0\n", atoi(argv[1]));
         return -1;
     }
