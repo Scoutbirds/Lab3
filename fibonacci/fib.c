@@ -7,6 +7,22 @@ int current = 1;
 int previous = 0;
 void *runner(void *param);
 
+int isNumber(char number[])
+{
+    int i = 0;
+
+    //checking for negative numbers
+    if (number[0] == '-')
+        return 0;
+    for (; number[i] != 0; i++)
+    {
+        //if (number[i] > '9' || number[i] < '0')
+        if (!isdigit(number[i]))
+            return 0;
+    }
+    return 1;
+}
+
 int main(int argc, char **argv)
 {
     pthread_t tid;
@@ -18,11 +34,10 @@ int main(int argc, char **argv)
     }
 
     int number;
-
     sscanf(argv[1], "%d", &number); // Using sscanf to get the number
 
-    if (number < 0){
-        fprintf(stderr, "%d must be >= 0\n", atoi(argv[1]));
+    if (isNumber(argv[1]) == 0){
+        printf("Invalid Number\n");
         return -1;
     }
 
@@ -44,7 +59,7 @@ void *runner(void *param)
 {
     int i, upper = atoi(param);
 
-    //fibonacci calculations
+    //fibonacci
     for (i = 1; i < upper; i++)
     {
         sum = current + previous;
