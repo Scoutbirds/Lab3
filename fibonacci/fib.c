@@ -7,7 +7,7 @@ int current = 1;
 int previous = 0;
 void *runner(void *param);
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     pthread_t tid;
     pthread_attr_t attr;
